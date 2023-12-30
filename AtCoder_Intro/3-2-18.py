@@ -1,4 +1,4 @@
-H, A = mao(int, input().split())
+H, A = map(int, input().split())
 
 X = H/A
 Y = H%A
