@@ -1,16 +1,17 @@
-import math
-N = int(intput())
+N = int(input())
 
-x = math.ceil(N/9)
+z = 0
 
-y = N%9
+for i in range(1, 555555 + 1):
+    si = str(i)
 
-if y == 0:
-    y = 9
+    ok = True
+    for s in si:
+        if s != si:
+            ok = False
+        if ok:
+            z += 1
 
-ans = ""
-
-for _ in range(0, 9):
-    ans += str(y)
-
+        if ok and z == N:
+            ans = i
 print(ans)
