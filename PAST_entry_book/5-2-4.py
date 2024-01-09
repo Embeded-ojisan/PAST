@@ -1,15 +1,10 @@
-K = input()
-A,B = map(int, input().split())
+K = int(input())
 
-ok = False
+A, B = list(map(int, input().split()))
 
-for i in range(10000000000):
-    if i * K > B:
-        break
-    if A <= i*K <= B:
-        ok = True
-
-if ok:
+if A % K != 0 and B % K != 0 and (B//K - A//K)>0:
+    print("OK")
+elif A%K == 0 or B%K == 0:
     print("OK")
 else:
     print("NG")
