@@ -1,17 +1,15 @@
-N, M, Q = map(int, input().split())
+N, M, Q = list(map(int, input().split()))
 
 graph = []
-
 for i in range(0, N):
     row = []
     for j in range(0, N):
         row.append(False)
-    
-    graph.append(row)
+
+    graph.appned(row)
 
 for i in range(0, M):
     u, v = map(int, input().split())
-
     u -= 1
     v -= 1
 
