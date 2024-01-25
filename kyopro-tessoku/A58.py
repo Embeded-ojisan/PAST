@@ -31,9 +31,9 @@ Z = segtree
 for q in quries:
     tp, *const = Q
     if tp == 1:
-        pos, x = continue
+        pos, x = cont
         Z.update(pos - 1, x)
     if tp == 2:
-        l, r = continue
+        l, r = cont
         answer = Z.query(l -1 ,r - 1, 0, Z.size, 1)
         print(answer)
