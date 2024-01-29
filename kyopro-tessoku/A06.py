@@ -1,15 +1,12 @@
 N, Q = list(map(int, input().split()))
-            
-A = []
-S = []
 
-S.append(0)
+A = [0] + list(map(int, input().split()))
+S = [0] * (N+1)
 
-A = list(map(int, input().split()))
-
-for i in range(N):
-    S.append(S[i] + A[i])
+for i in range(1, N+1):
+    S[i] = S[i-1] + A[i]
 
 for i in range(Q):
-    L, R = list(map(int, input().split()))
-    print(str(S[R]-S[L-1]))
+    l, r = list(map(int, input().split()))
+    print(str(S[r] - S[l-1]))
+
