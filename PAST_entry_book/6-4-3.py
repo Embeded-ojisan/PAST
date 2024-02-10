@@ -9,6 +9,7 @@ done = [False]*N
 
 def rec(i):
     if done[i]:
+        # 終了条件
         return cost[i]
     
     if i == 0:
