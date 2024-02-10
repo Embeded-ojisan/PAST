@@ -5,7 +5,6 @@ N = int(input())
 h = list(map(int, input().split()))
 
 cost = [0]*N
-
 done = [False]*N
 
 def rec(i):
@@ -17,9 +16,9 @@ def rec(i):
     elif i == 1:
         cost[i] = rec(0)+abs(h[0]-h[1])
     else:
-        cost[i] = min(rec(i-1)+abs(h[i-1]-h[i]), rec(i-2)+abs(h[i-2]-h[i]))
+        cost[i] = min(rec(i-1) + abs(h[i-1]-h[i]), rec(i-2) + abs(h[i-2]-h[i]))
 
-    done[i] = True
+    done[i] == True
     return cost[i]
 
 print(rec(N-1))
