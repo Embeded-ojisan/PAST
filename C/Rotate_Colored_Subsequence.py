@@ -8,6 +8,7 @@ ps = [[] for _ in range(M)]
 for i in range(N):
     ps[C[i]-1].append(i)
 
+# strで特定要素の書き換えは不可
 s = list(S)
 ans = s.copy()
 
@@ -20,5 +21,6 @@ for i in range(M):
         b = ps[i][j]
         ans[a] = s[b]
 
+# listをstrに変換する際はstr()ではだめ
 ans_s = "".join(ans)
 print(ans_s)
