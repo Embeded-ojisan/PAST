@@ -16,7 +16,6 @@ for i in range(M):
 x = 0
 y = 0
 
-print(S)
 
 for i in range(N):
     if S[i] == 'R':
@@ -29,14 +28,14 @@ for i in range(N):
         y -= 1
 
     H -= 1
-
-    if s.issubset((x, y)):
+    if H < 0:
+        print(s)
+        sys.exit()
+    if (x, y) in s:
         if H < K:
             H = K
             s.discard((x, y))
-    if H < 0:
-        print("No")
-        sys.exit()
+
 
 print("Yes")
 
