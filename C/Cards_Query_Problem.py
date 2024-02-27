@@ -3,7 +3,10 @@ Q = int(input())
 
 q = []
 
+# []*Nだとダメ
 cards = [[] for _ in range(N)]
+
+# ただの{}だとdict型だと処理される
 boxes = [set() for _ in range(200001)]
 
 for qi in range(Q):
