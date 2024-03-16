@@ -1,23 +1,31 @@
-N = int(input())
-A = list(map(int, input().split()))
+import sys
 
-M = int(input())
-B = list(map(int, input().split()))
+def swap_characters(s, i, j):
+    # 文字列をリストに変換
+    s_list = list(s)
+    # 要素を交換
+    s_list[i], s_list[j] = s_list[j], s_list[i]
+    # リストを文字列に戻す
+    return ''.join(s_list)
 
-L = int(input())
-C = list(map(int, input().split()))
+S = input()
 
-Q = int(input())
-X = list(map(int, input().split()))
+l = len(S)
 
-def checker(x):
-    for a in A:
-        for b in B:
-            for c in C:
-                if a+b+c == x:
-                    return "Yes"
-    return "No"
+dict = {}
 
-for x in X:
-    ans = checker(x)
-    print(ans)
+flag = False
+
+for i in range(l):
+    for j in range(i+1, l):
+        if S[i] != S[j]:
+            index = swap_characters(S, i, j)
+            getv = dict.get(index, 0)
+            dict[index] = getv + 1
+        else:
+            flag = True
+
+if flag == True:
+    print(str(len(dict)+1))
+else:
+    print(len(dict))

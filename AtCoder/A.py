@@ -1,12 +1,16 @@
+import sys
+
 S = input()
 
-flag = False
-A = []
+ans = 0
 
-for i in range(len(S)):
-    if S[i] == '|':
-        A.append(i)
+if S[0] != '<' or S[len(S)-1] != '>':
+    print("No")
+    sys.exit()
+else:
+    for i in range(1, len(S)-1):
+        if S[i] != '=':
+            print("No")
+            sys.exit()
 
-moji = S[0:A[0]] + S[A[1]+1:len(S)]
-
-print(moji)
+print("Yes")
