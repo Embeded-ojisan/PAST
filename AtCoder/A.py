@@ -1,16 +1,9 @@
-import sys
+N = int(input())
+A = list(map(int, input().split()))
 
-S = input()
+moji = ""
 
-ans = 0
+for i in range(N-1):
+    moji += str(A[i]*A[i+1]) + " "
 
-if S[0] != '<' or S[len(S)-1] != '>':
-    print("No")
-    sys.exit()
-else:
-    for i in range(1, len(S)-1):
-        if S[i] != '=':
-            print("No")
-            sys.exit()
-
-print("Yes")
+print(moji)
