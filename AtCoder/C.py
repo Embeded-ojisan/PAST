@@ -1,19 +1,25 @@
-N, K = list(map(int, input().split()))
+N = int(input())
 
-A = list(map(int, input().split()))
+a = []
+c = []
 
-SUMV = K*(K+1)//2
+d = {}
 
-A.sort()
-if A[0] <= K:
-    SUMA = A[0]
-else:
-    SUMA = 0
+for i in range(N):
+    atemp, ctemp = list(map(int, input().split()))
 
-for i in range(1, N):
-    if A[i] <= K and A[i] != A[i-1]:
-        SUMA += A[i]
+    if ctemp in d:
+        dtemp = d[ctemp]
+        if dtemp > atemp:
+            d[ctemp] = atemp
+    else:
+        d[ctemp] = atemp
 
-kotae = SUMV-SUMA
+min_iter = 10**9 + 1
+min_value = 0
+for key, value in d.items():
+    if min_value < value:
+        min_value = value
+        min_iter = key
 
-print(kotae)
+print(min_value)

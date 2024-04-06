@@ -1,48 +1,28 @@
 import math
-import sys
 
-W, B = list(map(int, input().split()))
+N = int(input())
 
-mihon = ""
+x = []
+y = []
 
-for i in range(100):
-    mihon += "w"+"b"
+for i in range(N):
+    xtemp, ytemp = list(map(int,input().split()))
+    x.append(xtemp)
+    y.append(ytemp)
 
-if W == 0:
-    if B == 1:
-        print("Yes")
-        sys.exit()
-    else:
-        print("No")
-        sys.exit()
-elif B == 0:
-    if W == 1:
-        print("Yes")
-        sys.exit()
-    else:
-        print("No")
-        sys.exit()
+for i in range(N):
+    max_num = N+1
+    max_distance = 0
+    x1 = x[i]
+    y1 = y[i]
+    for j in range(N-1, -1, -1):
+        x2 = x[j]
+        y2 = y[j]
+        temp_distance = math.sqrt((x1-x2)**2+(y1-y2)**2)
+        if temp_distance >= max_distance:
+            max_distance = temp_distance
+            max_num = j+1
+    print(max_num)
 
-baisuu = math.gcd(W, B)
 
-Wb = W // baisuu
-Bb = B // baisuu
 
-moji = ""
-
-if Wb > Bb:
-    moji += "w"
-    for i in range(Bb):
-        moji += "bw"
-elif Wb == Bb:
-    print("Yes")
-    sys.exit()
-else:
-    moji += "b"
-    for i in range(Wb):
-        moji += "wb"
-
-if moji in mihon:
-    print("Yes")
-else:
-    print("No")
