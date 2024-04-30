@@ -1,10 +1,9 @@
-N = int(input())
+A = list(map(int,input().split()))
+B = list(map(int,input().split()))
 
-moji = ""
-for i in range(1, N+1):
-    if i%3 == 0:
-        moji += "x"
-    else:
-        moji += "o"
+atotal = sum(A)
+btotal = sum(B)
 
-print(moji)
+diff = atotal-btotal+1
+
+print(diff)

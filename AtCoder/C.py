@@ -1,25 +1,24 @@
 N = int(input())
 
-a = []
-c = []
+A = list(map(int, input().split()))
 
-d = {}
+def func(p, q):
+    if q == 0:
+        return
+    if A[p] == A[q]:
+        del A[q]
+        A[p] += 1
+        func(p-1, p)
 
-for i in range(N):
-    atemp, ctemp = list(map(int, input().split()))
 
-    if ctemp in d:
-        dtemp = d[ctemp]
-        if dtemp > atemp:
-            d[ctemp] = atemp
-    else:
-        d[ctemp] = atemp
+i = 0
+while i < len(A)-1:
+    if A[i] == A[i+1]:
+        A[i] += 1
+        del A[i+1]
+        func(i-1, i)
+        i -= 1
+        continue
+    i += 1
 
-min_iter = 10**9 + 1
-min_value = 0
-for key, value in d.items():
-    if min_value < value:
-        min_value = value
-        min_iter = key
-
-print(min_value)
+print(len(A))
