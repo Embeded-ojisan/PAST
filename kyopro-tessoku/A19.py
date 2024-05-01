@@ -1,18 +1,40 @@
-N, W = map(int, input().split())
-w = [None]*(N+1)
-v = [None]*(N+1)
+N, W = list(map(int, input().split()))
+
+w = [0]
+v = [0]
+
+# dp = [[-1000000000]*(W+1)]*(N+1)
+
+dp = [[-10000]*(W+1) for i in range(N+1)]
 
 for i in range(1, N+1):
-    w[i], v[i] = map(int, input().split())
+    wtemp, vtemp = list(map(int, input().split()))
+    w.append(wtemp)
+    v.append(vtemp)
 
-dp = [ [-10**15]*(W+1) for i in range(N+1)]
-dp[0][0] = 0
+
+dp[0][1] = 77
+
+for i in range(N+1):
+    dp[i][0] = 0
+
+for j in range(W+1):
+    dp[0][j] = 0
 
 for i in range(1, N+1):
-    for j in range(0, W+1):
+    print(dp)
+    for j in range(W+1):
         if j < w[i]:
             dp[i][j] = dp[i-1][j]
-        if j >= w[i]:
-            dp[i][j] = max(dp[i-1][j], dp[i-1][j-w[i]]+v[i])
+        else:
+            dp[i][j] = max(dp[i-1][j], dp[i-1][j-w[i]]+ v[i])
 
-print(max(dp[N]))
+Answer = 0
+
+for i in range(W+1):
+    Answer = max(Answer, dp[N][i])
+
+print(w)
+print(v)
+print(dp[N])
+print(Answer)
