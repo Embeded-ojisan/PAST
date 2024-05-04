@@ -1,23 +1,22 @@
-import sys
+S = input()
+T = input()
 
-N = int(input())
+num = len(S)
+numT = len(T)
 
-A = []
-B = []
+moji = ""
+temp = 0
 
-for i in range(N):
-    a = list(input())
-    A.append(list(a))
+i = 0
 
-for i in range(N):
-    b = list(input())
-    B.append(list(b))
+while i < num:
+#    idx = T.find(S[i], temp, numT)
+    for j in range(temp, numT):
+        if S[i] == T[j]:
+            idx = j
+            break
+    temp = idx + 1
+    i += 1
+    moji += str(idx+1) + " "
 
-for i in range(N):
-    for j in range(N):
-        if A[i][j] != B[i][j]:
-
-            moji = str(i+1) + " " + str(j+1)
-            print(moji)
-            sys.exit()
-
+print(moji)

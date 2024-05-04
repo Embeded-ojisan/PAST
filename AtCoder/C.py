@@ -1,24 +1,17 @@
 N = int(input())
 
-A = list(map(int, input().split()))
+A = []
 
-def func(p, q):
-    if q == 0:
-        return
-    if A[p] == A[q]:
-        del A[q]
-        A[p] += 1
-        func(p-1, p)
+for i in range(N):
+    atemp, btemp = list(map(int, input().split()))
+    A.append((atemp, btemp, btemp-atemp))
 
+A.sort(key=lambda x: x[2])
 
-i = 0
-while i < len(A)-1:
-    if A[i] == A[i+1]:
-        A[i] += 1
-        del A[i+1]
-        func(i-1, i)
-        i -= 1
-        continue
-    i += 1
+length = 0
 
-print(len(A))
+for i in range(N-1):
+    length += A[i][0]
+length += A[N-1][1]
+
+print(length)

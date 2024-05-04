@@ -1,9 +1,8 @@
-A = list(map(int,input().split()))
-B = list(map(int,input().split()))
+N, X, Y, Z = list(map(int, input().split()))
 
-atotal = sum(A)
-btotal = sum(B)
-
-diff = atotal-btotal+1
-
-print(diff)
+if X <= Z and Z <= Y:
+    print("Yes")
+elif Y <= Z and Z <= X:
+    print("Yes")
+else:
+    print("No")
