@@ -1,17 +1,33 @@
 N = int(input())
 
-A = []
+t = []
 
 for i in range(N):
-    atemp, btemp = list(map(int, input().split()))
-    A.append((atemp, btemp, btemp-atemp))
+    a, c = list(map(int, input().split()))
+    t.append((a, c, i+1))
 
-A.sort(key=lambda x: x[2])
+t.sort(reverse=True, key=lambda x: x[0])
 
-length = 0
 
-for i in range(N-1):
-    length += A[i][0]
-length += A[N-1][1]
+i = 0
+while i < len(t):
+    j = i+1
+    while j < len(t):
+        if t[i][1] < t[j][1]:
+            del t[j]
+        j += 1
+    i += 1
 
-print(length)
+a = []
+
+for i in range(len(t)):
+    a.append(t[i][2])
+
+a.sort()
+
+print(len(a))
+moji = ""
+for i in range(len(a)):
+    moji += str(a[i]) + " "
+
+print(moji)
