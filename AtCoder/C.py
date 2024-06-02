@@ -1,33 +1,28 @@
-N = int(input())
+from itertools import product
 
-t = []
+def count_valid_combinations(N, M, K, tests):
+    count = 0
+    
+    for combination in product(['o', 'x'], repeat=N):
+        valid = True
+        for test in tests:
+            correct_keys = sum(1 for key in test[1] if combination[key - 1] == 'o')
+            if (test[0] == 'o' and correct_keys < K) or (test[0] == 'x' and correct_keys >= K):
+                valid = False
+                break
+        if valid:
+            count += 1
+    
+    return count
 
-for i in range(N):
-    a, c = list(map(int, input().split()))
-    t.append((a, c, i+1))
+N, M, K = map(int, input().split())
+tests = []
+for _ in range(M):
+    C, *keys, result = input().split()
+    C = int(C)
+    keys = list(map(int, keys))
+    tests.append((result, keys))
 
-t.sort(reverse=True, key=lambda x: x[0])
 
-
-i = 0
-while i < len(t):
-    j = i+1
-    while j < len(t):
-        if t[i][1] < t[j][1]:
-            del t[j]
-        j += 1
-    i += 1
-
-a = []
-
-for i in range(len(t)):
-    a.append(t[i][2])
-
-a.sort()
-
-print(len(a))
-moji = ""
-for i in range(len(a)):
-    moji += str(a[i]) + " "
-
-print(moji)
+result = count_valid_combinations(N, M, K, tests)
+print(result)

@@ -1,21 +1,18 @@
-N = int(input())
+import sys
 
-d = []
+N, M = list(map(int, input().split()))
 
-total = 0
+A = list(map(int, input().split()))
+
+X=[0]*M
 
 for i in range(N):
-    s, c = list(input().split())
+    x = list(map(int, input().split()))
+    for j in range(M):
+        X[j] += x[j]
 
-    c = int(c)
-
-    total += c
-
-    d.append((s, c))
-
-d.sort(key=lambda x: x[0])
-
-ans = total % N
-
-print(d[ans][0])
-
+for i in range(M):
+    if X[i] < A[i]:
+        print("No")
+        sys.exit()
+print("Yes")
