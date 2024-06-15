@@ -1,13 +1,15 @@
-N, L, R = list(map(int, input().split()))
+N, M = list(map(int, input().split()))
 
-A = []
+H = list(map(int, input().split()))
 
-for i in range(1, N+1):
-    A.append(i)
+ans = 0
+rest = M
 
-# 要素L-1から要素Rを逆順に変更
-A[L-1:R] = A[L-1:R][::-1]
+for h in H:
+    if M >= h:
+        M -= h
+        ans += 1
+    else:
+        break
 
-output = ' '.join(map(str, A))
-
-print(output)
+print(ans)
