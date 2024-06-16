@@ -11,17 +11,14 @@ B.sort()
 ans = 0
 
 temp = 0
+ai = 0
 for i in range(M):
-    if temp > N -1:
+    while ai < N and A[ai] < B[i]:
+        ai += 1
+    if ai == N:
         print("-1")
         sys.exit()
-    for j in range(temp, N):
-        if A[j] >= B[i]:
-            ans += A[j]
-            temp = j+1
-            break
-        elif j >= N-1 and i < M-1:
-            print("-1")
-            sys.exit()
+    ans += A[ai]
+    ai += 1
 
 print(ans)
