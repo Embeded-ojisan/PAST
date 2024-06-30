@@ -1,12 +1,15 @@
-import sys
+S = input()
 
-A, B = list(map(int, input().split()))
+ansM = 0
+ansR = 0
 
-if A == B:
-    print("-1")
-elif A == 1 and B == 2 or A == 2 and B == 1:
-    print("3")
-elif A == 1 and B == 3 or A == 3 and B == 1:
-    print("2")
-elif A == 3 and B == 2 or A == 2 and B == 3:
-    print("1")
+for i in range(len(S)):
+    if S[i] == 'R':
+        ansR = i
+    elif S[i] == 'M':
+        ansM = i
+
+if ansR < ansM:
+    print("Yes")
+else:
+    print("No")
