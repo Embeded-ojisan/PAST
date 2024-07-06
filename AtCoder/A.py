@@ -1,15 +1,10 @@
-S = input()
+N, K, X = list(map(int, input().split()))
+A = list(map(int, input().split()))
 
-ansM = 0
-ansR = 0
+A.insert(K, X)
 
-for i in range(len(S)):
-    if S[i] == 'R':
-        ansR = i
-    elif S[i] == 'M':
-        ansM = i
+ans = ""
 
-if ansR < ansM:
-    print("Yes")
-else:
-    print("No")
+for a in A:
+    ans += str(a) + " "
+print(ans)
