@@ -7,4 +7,6 @@ num_elements = len(my_set)
 my_set.add(4)  # 要素4を追加
 my_set.remove(2)  # 要素2を削除
 
-print("要素数:", num_elements)
+
+if 4 not in my_set:
+    print("要素数:", num_elements)
