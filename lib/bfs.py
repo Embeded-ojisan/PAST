@@ -24,7 +24,8 @@ for i in range(H):
 
 directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
-def cnt(x, y):
+def cnt(x, y, val):
+    # 仮引数の値をmove(グローバルな変数)ととしない
     visted[x][y] = True
     queue = deque([x, y])
 
@@ -33,13 +34,14 @@ def cnt(x, y):
         for dx, dy in directions:
             nx, ny = x+dx, y+dy
 
-            if 0 <= nx < H and 0 <= ny < W and not temp[nx][ny] and (S[nx][ny] == "."):
+            if 0 <= nx < H and 0 <= ny < W and not temp[nx][ny] and (S[nx][ny] == ".") and val <= D:
+                val += 1
                 visted[nx][ny] = True
                 queue.append((nx, ny))
 
 for x, y in Z:
     move = 0
-    cnt(x, y)
+    cnt(x, y, move)
 
 for i in range(H):
     for j in range(W):
