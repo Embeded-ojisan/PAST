@@ -1,10 +1,6 @@
-import sys
-input = sys.stdin.readline
+my_dict = {"apple": 100, "banana": 200}
 
-= list(map(int, input().split()))
+# 新しいキー "orange" と値 300 を追加
+my_dict["orange"] = 300
 
-#\nに対しては
-= input().strip()
-
-ans = 0
-print(ans)
+print(my_dict)  # {"apple": 100, "banana": 200, "orange": 300}
