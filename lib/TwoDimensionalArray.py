@@ -1,4 +1,5 @@
 # A = [[False]*W for _ in range(H])]は間違い
+# A = [[] for _ in range(N)]も同様
 A = [[False]*W for _ in range(H)]
 
 A = [list(input()) for _ in range(N)]

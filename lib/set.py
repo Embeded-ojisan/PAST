@@ -1,3 +1,5 @@
+my_set = set()
+
 my_set = {1, 2, 3, 4}
 
 num_elements = len(my_set)
